@@ -16,7 +16,7 @@ local get_today_date_str, hook_error_capture, init, safe_csa, show_copy_text_box
 
 ALC = {
 	name = "AutoLuaMemoryCleaner",
-	version = "2026.09.29.21.48",
+	version = "2026.10.03.06.13",
 	defaults = {
 		schema_version = 2,
 		is_enabled = true,
