@@ -1,0 +1,46 @@
+### Version 2026.10.04.19.21 <sub>*(10/04/2026)*</sub>
+
+#### Technical Style & Logic
+* Now depends on <kbd>LibAPH</kbd>, a shared helper library for my addons.
+* Added a <kbd>Module Manager</kbd> - the Wizard, Menu, Migration, and UI modules can each
+  be soft-disabled independently (<kbd>/alcunloadwizard</kbd>, <kbd>/alcunloadmenu</kbd>,
+  <kbd>/alcunloadmigration</kbd>, <kbd>/alcunloadui</kbd>).
+* New <kbd>Codebase changes</kbd>, various stability and settings-menu fixes across PC and
+  Console and language localization support.
+* Updated the Versioning.
+
+#### Memory Pool Cleanup
+* Added <kbd>Auto Pool Cleanup After Travel</kbd> - watches for you traveling and reloads
+  the UI afterward if the addon memory pool is worth clearing, or if you set a specific
+  custom threshold for clearing. It only reloads when the pool has also grown since login or
+  the last reload, so it never reloads for nothing.
+* Improved the accuracy of the <kbd>Pool Cleanup report</kbd> with an adaptive re-check.
+* Added Cleanup Method - Background (the default) cleans up in small steps over several
+  frames, so clearing a big Lua heap no longer have micro-stutters for the game. Automatic
+  leaves memory to the game engine; Aggressive and Deep Clean run one or two full passes.
+  <kbd>/alccleanupmode</kbd> switches between them.
+
+#### UI & Console Updates
+* Added a <kbd>Setup Wizard</kbd> on first install to ask your preferences.
+* Added <kbd>LibHarvensAddonSettings</kbd> support for the <kbd>console Settings
+  Menu</kbd>.
+* Fixed <kbd>Chat output</kbd> on console for slash commands.
+* Added a <kbd>Library Warning Messages</kbd> toggle to enable or disable the
+  optional-library popup, screen announcement, and chat reminder (<kbd>/alclibwarn</kbd>).
+* Updated the optional-library <kbd>chat and screen announcement messages</kbd> to clearly
+  state whether <kbd>LibAddonMenu</kbd> or <kbd>LibHarvensAddonSettings</kbd> is missing,
+  disabled, or outdated, with the popup and screen announcement (shown only once).
+* Updated settings-menu <kbd>submenus remembering</kbd> whether they were left open or
+  closed across a reload (PC only).
+* Added a warning icon and a confirmation to Reset UI Position, Reset UI Size and Reset to
+  Defaults.
+
+#### General Additions
+* Updated <kbd>Bug Report</kbd>.
+* Removed <kbd>Live statistics</kbd> in favor of <kbd>Client information</kbd> for easier
+  bug tracking and stability.
+* Removed the script profiler, memory graph, session history,
+  FPS<kbd>/ping</kbd><kbd>/frame</kbd>-time trackers and the cleanup percentage bar, along
+  with their slash commands and the <kbd>LibCombatAlerts</kbd> dependency.
+* Updated Savedvariables: settings from 0.0.8 are reset to defaults once on first login,
+  with a chat message.
