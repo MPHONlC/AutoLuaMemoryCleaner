@@ -1,0 +1,189 @@
+[SIZE="3"][b][COLOR="#4CAF50"]Changelog[/COLOR][/b][/SIZE]
+
+[b][COLOR="Orange"]Version 2026.10.07.17.24[/COLOR]: [COLOR="Gray"][i](10/07/2026)[/i][/COLOR][/b]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Memory Cleanup:[/COLOR][/b][/SIZE]
+[LIST]
+[*] Cleanups from other add-ons that use [COLOR="#FF69B4"]LibAPH[/COLOR] show in the window, chat logs and announcements.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Slash Commands:[/COLOR][/b][/SIZE]
+[LIST]
+[*] /alcon, /alccsa, /alclogs, /alcui and /alclock now say what they switched on or off.
+[*] /alclock and /alcreset are hidden while Show UI is off, and /alcpoolconfirm while [COLOR="Lime"]Auto Pool Cleanup After Travel[/COLOR] is off.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Settings Menu:[/COLOR][/b][/SIZE]
+[LIST]
+[*] The status window settings and the [COLOR="Lime"]Auto Pool Cleanup After Travel[/COLOR] Confirmation checkbox only appear while their setting is on.
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.10.07.07.01[/COLOR]: [COLOR="Gray"][i](10/07/2026)[/i][/COLOR][/b]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Cleanup Method:[/COLOR][/b][/SIZE]
+[LIST]
+[*] Update Automatic cleanup method, now the default: it picks the best method for each cleanup.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]Vanilla[/COLOR], which leaves memory management to the game engine.
+[*] Chat, the center-screen message and the status window show which method Automatic picked; the status window shows it for 3 seconds.
+[*] [COLOR="#FF6347"]Fixed[/COLOR] the [COLOR="#FF6347"]Cleanup Method dropdown showing empty text after switching methods[/COLOR].
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Technical Style & Logic:[/COLOR][/b][/SIZE]
+[LIST]
+[*] The status window refreshes once a second only while it is on screen, instead of checking every frame, and only re-measures its width when the text layout changes.
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.10.06.08.01[/COLOR]: [COLOR="Gray"][i](10/06/2026)[/i][/COLOR][/b]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Technical Style & Logic:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="#1E90FF"]Now[/COLOR] depends on [COLOR="#FF69B4"]LibAPH[/COLOR], a shared helper library for my addons.
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]Module Manager[/COLOR] - the Wizard, Menu, Migration, and UI modules can each be soft-disabled independently [COLOR="Gray"][i](/alcunloadwizard, /alcunloadmenu, /alcunloadmigration, /alcunloadui)[/i][/COLOR].
+[*] [COLOR="Lime"]New[/COLOR] [COLOR="Lime"]Codebase changes[/COLOR], various stability and settings-menu fixes across [COLOR="#FF69B4"]PC[/COLOR] and [COLOR="#FF69B4"]Console[/COLOR] and language localization support.
+[*] [COLOR="#1E90FF"]Updated[/COLOR] the Versioning.
+[*] The status window refreshes once a second only while it is on screen, instead of checking every frame, and only re-measures its width when the text layout changes.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Memory Pool Cleanup:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]Auto Pool Cleanup After Travel[/COLOR] - watches for you traveling and reloads the UI afterward if the addon memory pool is worth clearing, or if you set a specific custom threshold for clearing. It only reloads when the pool has also grown since login or the last reload, so it never reloads for nothing.
+[*] [COLOR="#00BFFF"]Improved[/COLOR] the accuracy of the [COLOR="#00BFFF"]Pool Cleanup report[/COLOR] with an adaptive re-check.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]Cleanup Method[/COLOR] - Automatic [COLOR="Gray"][i](the default)[/i][/COLOR] picks the best of them each time and says which one it used, Background cleans up in small steps over several frames, so clearing a big Lua heap no longer have micro-stutters for the game, Vanilla leaves memory to the game engine; Aggressive and Deep Clean run one or two full passes. /alccleanupmode switches between them.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]UI & Console Updates:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]Setup Wizard[/COLOR] on first install to ask your preferences.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="#FF69B4"]LibHarvensAddonSettings[/COLOR] support for the [COLOR="Lime"]console Settings Menu[/COLOR].
+[*] [COLOR="#FF6347"]Fixed[/COLOR] [COLOR="#FF6347"]Chat output[/COLOR] on console for slash commands.
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]Library Warning Messages[/COLOR] toggle to enable or disable the optional-library popup, screen announcement, and chat reminder [COLOR="Gray"][i](/alclibwarn)[/i][/COLOR].
+[*] [COLOR="#1E90FF"]Updated[/COLOR] the optional-library [COLOR="#1E90FF"]chat and screen announcement messages[/COLOR] to clearly state whether [COLOR="#FF69B4"]LibAddonMenu[/COLOR] or [COLOR="#FF69B4"]LibHarvensAddonSettings[/COLOR] is missing, disabled, or outdated, with the popup and screen announcement [COLOR="Gray"][i](shown only once)[/i][/COLOR].
+[*] [COLOR="#1E90FF"]Updated[/COLOR] settings-menu [COLOR="#1E90FF"]submenus remembering[/COLOR] whether they were left open or closed across a reload [COLOR="Gray"][i](PC only)[/i][/COLOR].
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]warning icon and a confirmation[/COLOR] to Reset UI Position, Reset UI Size and Reset to Defaults.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]General Additions:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="#1E90FF"]Updated[/COLOR] [COLOR="#1E90FF"]Bug Report[/COLOR].
+[*] [COLOR="#FF4500"]Removed[/COLOR] [COLOR="#FF4500"]Live statistics[/COLOR] in favor of [COLOR="Lime"]Client information[/COLOR] for easier bug tracking and stability.
+[*] [COLOR="#FF4500"]Removed[/COLOR] the [COLOR="#FF4500"]script profiler[/COLOR], memory graph, session history, FPS/ping/frame-time trackers and the cleanup percentage bar, along with their slash commands and the [COLOR="#FF69B4"]LibCombatAlerts[/COLOR] dependency.
+[*] [COLOR="#1E90FF"]Updated[/COLOR] Savedvariables: settings from 0.0.8 are reset to defaults once on first login, with a chat message.
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.03.26.21.30[/COLOR]: [COLOR="Gray"][i](03/26/2026)[/i][/COLOR][/b]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Technical Style & Logic:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="#00BFFF"]Improved[/COLOR] Addon Code for better readability.
+[*] [COLOR="#1E90FF"]Updated[/COLOR] Internal Function Calls to standardized dot notation for better consistency.
+[*] [COLOR="#00FFFF"]Optimized[/COLOR] [COLOR="#FF69B4"]Console[/COLOR] Thresholds by lowering the default cleanup trigger to [COLOR="Orange"]60MB[/COLOR] [COLOR="Gray"][i](existing users are auto-migrated to the new cleanup threshold)[/i][/COLOR].
+[*] [COLOR="#00BFFF"]Improved[/COLOR] Memory Tracking Accuracy by separating logical Lua memory from the physical [COLOR="#FF69B4"]Console[/COLOR] Memory Pool across the UI and graph.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]UI & Scene Manager:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="Lime"]Added[/COLOR] Gamepad UI Movement via [COLOR="#FF69B4"]LibCombatAlerts[/COLOR] to allow [COLOR="#FF69B4"]PS5[/COLOR]/[COLOR="#FF69B4"]Xbox[/COLOR] users to move all ALC windows with the Right Stick.
+[*] [COLOR="#FF6347"]Fixed[/COLOR] the [COLOR="#FF6347"]Scene Manager Override Bug that forcefully unhid the ALC UI by implementing strict fragment queries[/COLOR].
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Profiler & Diagnostics:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="Lime"]Introduced[/COLOR] a [COLOR="Lime"]Dynamic Severity Color Scale that automatically colors profiler scan results from gray[/COLOR] to red based on their actual execution time.
+[*] [COLOR="#00BFFF"]Improved[/COLOR] Time Formatting to dynamically convert milliseconds into seconds, minutes, or hours.
+[*] [COLOR="#00FFFF"]Optimized[/COLOR] [COLOR="#FF69B4"]Console[/COLOR] Profiling and reduced the scan time to 30 seconds.
+[*] [COLOR="#4CAF50"]Implemented[/COLOR] an Emergency Stop for console users that forcefully halts the profiler at [COLOR="Orange"]80MB[/COLOR] and priority-saves partial data to prevent a hard UI crash.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]Specific Addon Exclusions and Libraries filtering submenus[/COLOR] to filter profiler scans without needing to disable addons.
+[*] [COLOR="#4CAF50"]Implemented[/COLOR] a Combat Safety Delay to pause the profiler from saving results if you are in combat, preventing in-game calculation freezes during combat scenarios.
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]Profiler Results window inside the settings[/COLOR] to display and save the complete list of all scan results.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]General Additions:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]Reset Button[/COLOR] to safely wipe settings to default.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]new slash commands /alcprolist and /alcprostop[/COLOR].
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.03.17.21.30[/COLOR]: [COLOR="Gray"][i](03/17/2026)[/i][/COLOR][/b]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Performance & API Updates:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="#1E90FF"]Updated[/COLOR] API to 101049.
+[*] [COLOR="#00FFFF"]Optimized[/COLOR] Event Dormancy to unregister background calls when sub-features are disabled.
+[*] [COLOR="#1E90FF"]Updated[/COLOR] Performance-First Defaults to ensure the Graph, Chat Logs, and Trackers start OFF.
+[*] [COLOR="#00FFFF"]Optimized[/COLOR] Priority Save logic to only trigger when statistics tracking is active.
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]Track Statistics toggle[/COLOR] [COLOR="Gray"][i](defaulted to OFF)[/i][/COLOR] for a more lightweight UX.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]KB formatting[/COLOR] for smaller memory cleanup reports.
+[*] Auto-Migration: new performance defaults automatically apply to existing users upon update.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]UI & Console Updates:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="#FF69B4"]Console[/COLOR] Positioning Sliders to allow [COLOR="#FF69B4"]PS5[/COLOR]/[COLOR="#FF69B4"]Xbox[/COLOR] users to move the UI [COLOR="Gray"][i](thanks to @Lily for the suggestion)[/i][/COLOR].
+[*] [COLOR="Lime"]Introduced[/COLOR] a [COLOR="Lime"]Detachable Memory Graph Module[/COLOR] [COLOR="Gray"][i](movable & lockable position)[/i][/COLOR].
+[*] [COLOR="#4CAF50"]Implemented[/COLOR] Dynamic Visual Graph UI for real-time system monitoring.
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]Dynamic Percentage Bar[/COLOR] to indicate cleanup proximity based on user thresholds.
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]Global Rendering Option[/COLOR] to keep the UI visible while navigating menus.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Profiler Module & Dependency Warning:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]Script Profiler Module[/COLOR] to identify laggy addons via 60-second performance scans.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]Optional Dependency Warning popups[/COLOR] for missing or outdated [COLOR="#FF69B4"]LibAddonMenu[/COLOR]-2.0.
+[/LIST]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Advanced Diagnostics & Session Tracking:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="Lime"]Introduced[/COLOR] a [COLOR="Lime"]Detachable Session History UI[/COLOR] to view previous session data.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]Independent Session Data Logging[/COLOR] for Peak, Average, and Final [COLOR="Gray"][i](Last Seen)[/i][/COLOR] states.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]21 new slash commands[/COLOR] for full control over all diagnostic modules.
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.03.02.21.30[/COLOR]: [COLOR="Gray"][i](03/02/2026)[/i][/COLOR][/b]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]General Updates:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="#00BFFF"]Improved[/COLOR] cleanup routine checks for the built-in ALC logic.
+[*] [COLOR="#00BFFF"]Improved[/COLOR] console event listener for more stability.
+[*] [COLOR="#00FFFF"]Changed[/COLOR] [COLOR="#FF69B4"]LibAddonMenu[/COLOR]-2.0 to an optional dependency. Core cleanup and /alc slash commands now work as a standalone utility.
+[*] Note: without the dependencies you can still run the addon independently and control its settings via built-in slash commands. Install the library if you want the settings GUI.
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.02.27.21.30[/COLOR]: [COLOR="Gray"][i](02/27/2026)[/i][/COLOR][/b]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]UI & Slash Command Updates:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="#FF6347"]Adjusted[/COLOR] [COLOR="#FF6347"]CSA messages[/COLOR] to prevent text from being cut off.
+[*] [COLOR="#1E90FF"]Updated[/COLOR] memory formatting to display MB, GB, or TB on the UI statistics panel.
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]"Combat" state indicator[/COLOR] to the draggable UI.
+[*] [COLOR="#1E90FF"]Updated[/COLOR] the minimum memory reporting threshold to [COLOR="Orange"]0.01 MB[/COLOR].
+[*] [COLOR="#00FFFF"]Increased[/COLOR] menu interaction memory check delay from 2s to 6s.
+[*] [COLOR="#1E90FF"]Updated[/COLOR] slash commands and /alc output for better readability.
+[*] [COLOR="#1E90FF"]Updated[/COLOR] settings menu tooltips to reflect command changes.
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.02.17.21.30[/COLOR]: [COLOR="Gray"][i](02/17/2026)[/i][/COLOR][/b]
+
+[SIZE="2"][b][COLOR="RoyalBlue"]Data & Performance:[/COLOR][/b][/SIZE]
+[LIST]
+[*] [COLOR="Lime"]Added[/COLOR] a [COLOR="Lime"]"Live Statistics" panel[/COLOR] to track memory usage and freed memory data.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]Automatic Data Migration[/COLOR] to prune obsolete SavedVariables from v0.0.1 through v0.0.3.
+[*] [COLOR="Lime"]Added[/COLOR] [COLOR="Lime"]"Priority Save"[/COLOR] for background SavedVariables to protect data during unexpected game closures.
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.02.16.21.30[/COLOR]: [COLOR="Gray"][i](02/16/2026)[/i][/COLOR][/b]
+
+[LIST]
+[*] [COLOR="#1E90FF"]Updated[/COLOR] [COLOR="#FF69B4"]LibAddonMenu[/COLOR]-2.0 minimum requirement to version 41.
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.02.16.21.29[/COLOR]: [COLOR="Gray"][i](02/16/2026)[/i][/COLOR][/b]
+
+[LIST]
+[*] [COLOR="#1E90FF"]Updated[/COLOR] [COLOR="#FF69B4"]LibAddonMenu[/COLOR]-2.0 to latest version requirement.
+[/LIST]
+
+[b][COLOR="Orange"]Version 2026.02.16.21.28[/COLOR]: [COLOR="Gray"][i](02/16/2026)[/i][/COLOR][/b]
+
+[LIST]
+[*] Initial public release.
+[/LIST]
