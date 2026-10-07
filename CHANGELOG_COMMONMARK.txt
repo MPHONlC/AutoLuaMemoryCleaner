@@ -1,0 +1,16 @@
+# Changelog
+
+# VERSION 2026.10.07.10.43 (2026-10-07)
+
+## Memory Cleanup
+
+- Cleanups from other add-ons that use LibAPH show in the window, chat logs and announcements.
+
+## Slash Commands
+
+- /alcon, /alccsa, /alclogs, /alcui and /alclock now say what they switched on or off.
+- /alclock and /alcreset are hidden while Show UI is off, and /alcpoolconfirm while Auto Pool Cleanup After Travel is off.
+
+## Settings Menu
+
+- The status window settings and the Auto Pool Cleanup After Travel Confirmation checkbox only appear while their setting is on.
