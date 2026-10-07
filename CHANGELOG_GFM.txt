@@ -1,4 +1,4 @@
-### Version 2026.10.07.10.43 <sub>*(10/07/2026)*</sub>
+### Version 2026.10.07.17.24 <sub>*(10/07/2026)*</sub>
 
 #### Memory Cleanup
 * Cleanups from other add-ons that use <kbd>LibAPH</kbd> show in the window, chat logs and
