@@ -1,7 +1,7 @@
 AutoLuaMemoryCleaner - Changelog
 =================================
 
-Version: 2026.10.06.13.49 (26100613)
+Version: 2026.10.07.07.01 (26100707)
 ---------------------------
 
 Cleanup Method

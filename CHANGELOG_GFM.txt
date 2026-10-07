@@ -1,4 +1,4 @@
-### Version 2026.10.06.13.49 <sub>*(10/06/2026)*</sub>
+### Version 2026.10.07.07.01 <sub>*(10/07/2026)*</sub>
 
 #### Cleanup Method
 * Update Automatic cleanup method, now the default: it picks the best method for each
