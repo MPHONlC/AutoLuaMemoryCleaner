@@ -1,0 +1,34 @@
+Module Manager
+Auto Pool Cleanup After Travel
+Reload After Loading Screen When Memory Is Bloated
+Reload When AFK
+Garbage Check Ignores Min. Growth
+Garbage Check
+Low Memory CSA & Chat Logs
+Pool Cleanup report
+Setup Wizard
+Library Warning Messages
+Bug Report
+Live statistics
+console Settings Menu
+chat and screen announcement messages
+submenus remembering
+Codebase changes
+Chat output
+Reload When Add-On Memory Is Almost Full
+Garbage Check CSA & Chat Logs
+Min. Growth Since Last Cleanup
+Minimum Time Between Reloads
+Center Screen Announcements
+AFK Time Before Reload
+Console Pool Threshold
+PC Reload Threshold
+PC Pool Threshold
+Lua Cleanup Delay
+Reload Delay
+Cleanup Method
+Deep Clean
+Vanilla
+
+Client information:Lime
+ALC:#00FFFF
