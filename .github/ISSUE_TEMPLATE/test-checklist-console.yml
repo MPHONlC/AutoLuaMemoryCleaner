@@ -1,0 +1,91 @@
+name: "\u2705 Auto Lua Memory Cleaner Test Checklist (Console)"
+description: Run through Auto Lua Memory Cleaner's Console test checklist and report results
+title: '[TEST][Console] '
+labels:
+- testing
+assignees:
+- MPHONlC
+body:
+- type: markdown
+  attributes:
+    value: Thanks for testing **Auto Lua Memory Cleaner** on Console! Check off everything you actually tested and confirmed working. Anything broken or partly working, describe it in the notes field at the end instead of checking it off.
+- type: input
+  id: version
+  attributes:
+    label: Add-on version
+    placeholder: e.g. 2026.09.29.21.48
+  validations:
+    required: true
+- type: dropdown
+  id: platform
+  attributes:
+    label: Platform
+    options:
+    - Console (Xbox)
+    - Console (PlayStation)
+  validations:
+    required: true
+- type: checkboxes
+  id: console_tests
+  attributes:
+    label: Console tests confirmed working
+    options:
+    - label: 'Wizard: First install (or /alcwizard): step through with Use Default on every step.'
+    - label: 'Wizard welcome: On a fresh install the Welcome dialog shows: press Skip. Then run /alcwizard and press Quick Setup.'
+    - label: 'Wizard yes or no: Run /alcwizard and answer No to chat logs (keyboard mode only), center-screen notices, the status UI and pool cleanup; run it again and answer Yes to each.'
+    - label: 'Wizard custom: Run /alcwizard, reach Cleanup Method, pick Customize, Customize again, then Forced Cleanup, then Deep Clean.'
+    - label: 'Wizard thresholds: Run /alcwizard. On the Lua threshold, Lua delay, pool threshold and pool delay steps pick Customize, then Low or High for the thresholds, Short or Long for the delays.'
+    - label: 'Cleanup Method: Open the ALC settings. Open Cleanup Method.'
+    - label: 'Background: Set Background, then /alcclean.'
+    - label: 'Aggressive: Set Aggressive, then /alcclean.'
+    - label: 'Deep Clean: Set Deep Clean, then /alcclean.'
+    - label: 'Automatic: Set Automatic. Play normally past the threshold, then open a menu such as the inventory and wait.'
+    - label: 'Vanilla: Set Vanilla and play normally past the threshold for a while.'
+    - label: 'Command: Type /alccleanupmode five times.'
+    - label: 'Auto Lua Cleanup: Turn Auto Lua Cleanup off, then back on. Also toggle it with /alcon, which says ON or OFF.'
+    - label: 'Console Lua Threshold: Move the Console Lua Threshold (MB) slider to its lowest value (5) and highest (95).'
+    - label: 'Lua Cleanup Delay: Set Lua Cleanup Delay (Seconds) to 30, run /alcclean, then push memory past the threshold again inside 30 seconds and after it. Also try 1200.'
+    - label: 'Cleanup growth: Set Min. Growth Since Last Cleanup (MB) to 10 and Min. Growth Since Last Cleanup (%) to 0, let Lua grow about 5 MB past the last cleanup, then past 10 MB.'
+    - label: 'Auto cleanup: With Auto Lua Cleanup on, pass the Console Lua threshold, then leave combat or open a menu.'
+    - label: 'Combat and death: With memory above the threshold, get into combat (or die) and watch the status window.'
+    - label: 'Low memory: Let the add-on memory limit warning appear (70 MB), once out of combat and once in combat, with the Vanilla method too.'
+    - label: 'Low memory Deep Clean: Push add-on memory past 80 MB faster than the small steps can clean, for example with the console Fill script at a high rate.'
+    - label: 'Low memory reload: Turn on Reload When Add-On Memory Is Almost Full. Keep add-on memory above 85 MB for 10 seconds three times: leave the dialog alone once, press Skip once, press Reload UI once; then push it to 88.5 MB.'
+    - label: 'Low Memory CSA & Chat Logs: Turn it on, let the low-memory warning appear and memory come back under 65 MB; then turn it off and do it again.'
+    - label: 'Pool reload: Turn on Reload After Loading Screen When Memory Is Bloated with the pool still above the Console Pool Threshold (MB) after a cleanup and grown since login, then use a wayshrine.'
+    - label: 'Pool floor: Right after logging in, with the pool above the threshold but not grown, travel.'
+    - label: 'Pool confirm: Turn on Ask Before Reloading After a Loading Screen and travel with a grown pool.'
+    - label: 'Pool stuck: Trigger a pool reload where the pool does not shrink afterwards.'
+    - label: 'Pool commands: Type /alcpoolreload and /alcpoolconfirm with Reload After Loading Screen When Memory Is Bloated on; turn it off and check /alcpoolconfirm is no longer a command.'
+    - label: 'Pool sliders: Turn on Reload After Loading Screen When Memory Is Bloated, then move the Console Pool Threshold (MB) slider (0.01 to 85) and the Reload Delay (Seconds) slider.'
+    - label: 'Pool reload cooldown: Turn on Reload After Loading Screen When Memory Is Bloated (it is off by default), set Minimum Time Between Reloads (Minutes) to 10, then travel twice within 10 minutes with memory a cleanup cannot bring down. Also try 180.'
+    - label: 'Group activities: With Reload After Loading Screen When Memory Is Bloated on and memory above the threshold, zone into a group dungeon, a trial or arena, a battleground, Cyrodiil and the Infinite Archive, and travel while queued for an activity.'
+    - label: 'Reload When AFK: Turn it on and set AFK Time Before Reload (Minutes) to 3. Stand still on the HUD for 3 minutes and keep standing; then move, open the inventory for 2 minutes, close it and wait. Also stand still in a group dungeon or trial.'
+    - label: 'Garbage Check: Set the Console Lua Threshold (MB) above your memory and Lua Cleanup Delay (Seconds) to 30, keep Chat Logs on and wait two minutes out of combat; then turn Garbage Check Ignores Min. Growth on; then try Vanilla.'
+    - label: 'Center Screen Announcements: Turn Center Screen Announcements off and on (or /alccsa, which says ON or OFF). Run /alcclean when there is something to clean and again right after.'
+    - label: 'Chat Logs: Turn Chat Logs off and on (or /alclogs, which says ON or OFF). Run /alcclean twice.'
+    - label: 'Manual cleanup: Open Advanced Settings and press MANUAL CLEANUP.'
+    - label: 'Show UI: Turn Show UI off, then on (or /alcui). With it off, look for the window.'
+    - label: 'Render in menus: Toggle Render UI in Menus and open a menu.'
+    - label: 'Lock UI Position: Turn Lock UI Position on (or /alclock), then try Move UI (Right Stick); turn it off and try again.'
+    - label: 'Move UI: Settings > Move UI (Right Stick).'
+    - label: 'UI Scale: Move the UI Scale slider from 0.5 to 2.0.'
+    - label: 'Reset UI position: Drag the window somewhere else, then press RESET UI POSITION (or /alcreset).'
+    - label: 'Reset UI: Resize the UI and then, press the RESET UI SIZE button to reset.'
+    - label: 'Status text: Look at the window for a while, run /alcclean, then wait.'
+    - label: 'Module Manager: /alcunloadui, reload, then /alcunloadui again and reload.'
+    - label: 'Module Manager files: /alcunloadwizard, /alcunloadmenu and /alcunloadmigration one at a time (reload each time), then repeat each once more. Also try the Module Manager buttons in settings and the Reload UI button.'
+    - label: 'Client Info: Open Client Information in settings.'
+    - label: 'Commands Info: Open Commands Info in settings and compare it with /alc.'
+    - label: 'Commands: Type /alc.'
+    - label: 'Command aliases: Type each alias: /autoluaclean, /alcenable, /alctoggleui, /alcuilock, /alcuireset, /alctogglecsa, /alcchatlogs, /alccleanup, /alcwipe.'
+    - label: 'Reset: Change some settings and press RESET TO DEFAULTS in Advanced Settings.'
+    - label: 'Reset command: Change some settings and type /alcdelvars.'
+    - label: 'Library Warning: Disable an optional library (LibAddonMenu-2.0 on PC, LibHarvensAddonSettings on console), then enable the Library warning checkbox.'
+    - label: 'Library warning toggle: Type /alclibwarn twice.'
+- type: textarea
+  id: notes
+  attributes:
+    label: Anything broken, partly working, or not tested
+    description: 'One line per issue: which test, what happened instead of Expected.'
+    placeholder: 'e.g. PC-L-04 Bug report: popup opened but API version line was blank'
